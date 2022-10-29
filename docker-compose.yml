@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - 27017:27017
+    volumes:
+      - ./../mongo/mongo-data:/data/db
+    command: --wiredTigerCacheSizeGB 1.5
+    networks:
+      topapi:
+        ipv4_address: 172.55.0.5
+  top.api:
+    image: top-api:latest
+    depends_on:
+     - mongo
+    container_name: top-api
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    volumes:
+      - ./.env:/opt/app/.env
+    networks:
+      topapi:
+        ipv4_address: 172.55.0.6
+networks:
+  topapi:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.55.0.0/16
+         gateway: 172.55.0.1
