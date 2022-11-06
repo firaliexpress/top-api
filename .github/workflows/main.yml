@@ -18,6 +18,6 @@ jobs:
         registry: docker.pkg.github.com
         name: docker.pkg.github.com/firaliexpress/top-api/top-api
         username: ${{ github.actor }}
-        password: ${{ github.token }}
+        password: ${{ secrets.GIT_AUTH_TOKEN }}
         tags: "develop"
         
