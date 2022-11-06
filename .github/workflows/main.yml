@@ -11,9 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    -
-      uses: actions/checkout@main
-      name: Publish to Registry
+    - uses: actions/checkout@main
+    - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
         registry: docker.pkg.github.com
