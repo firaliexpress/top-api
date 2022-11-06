@@ -1,12 +1,10 @@
 name: Publish Docker
-
 on:
   push:
     branches: [main]
-
 jobs:
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - users: actions/checkout@main
       - name: Publish to registry
