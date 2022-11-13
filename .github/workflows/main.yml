@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
-    - name: Publish to registry
+    - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
         registry: ghcr.io
