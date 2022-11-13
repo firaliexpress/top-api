@@ -16,7 +16,7 @@ services:
       topapi:
         ipv4_address: 172.55.0.5
   top.api:
-    image: top-api:latest
+    image: ghcr.io/firaliexpress/top-api/top-api:develop
     depends_on:
      - mongo
     container_name: top-api

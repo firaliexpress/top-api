@@ -13,8 +13,8 @@ jobs:
     - name: Publish to registry
       uses: elgohr/Publish-Docker-Github-Action@v4
       with:
-        registry: docker.pkg.github.com
-        name: docker.pkg.github.com/firaliexpress/top-api/top-api
+        registry: ghcr.io
+        name: ghcr.io/firaliexpress/top-api/top-api
         username: ${{ github.actor }}
         password: ${{ secrets.GIT_AUTH_TOKEN }}
         tags: "develop"
